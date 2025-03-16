@@ -1,0 +1,39 @@
+{
+  "name": "@midwestdev/linear-mcp",
+  "version": "0.1.0",
+  "description": "A Model Control Protocol (MCP) for Linear App - Seamlessly integrate Linear's project management capabilities into any application",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "linear",
+    "mcp",
+    "project-management",
+    "api",
+    "typescript"
+  ],
+  "author": "Midwest Development",
+  "license": "MIT",
+  "dependencies": {
+    "@linear/sdk": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.0.0",
+    "jest": "^29.0.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Deehands24/linear-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Deehands24/linear-mcp/issues"
+  },
+  "homepage": "https://github.com/Deehands24/linear-mcp#readme"
+}
