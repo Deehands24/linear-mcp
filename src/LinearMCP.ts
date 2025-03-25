@@ -284,27 +284,91 @@ export class LinearMCP {
       projectDescription: `${projectName}: A software development project focusing on ${projectScope}. This project will implement a comprehensive solution that addresses key challenges in this domain while ensuring scalability, security, and excellent user experience.`,
       milestones: [
         {
+          title: "Discovery & Analysis",
+          description: "Understand requirements, analyze the problem domain, and establish project foundations.",
+          issues: [
+            {
+              title: "Stakeholder interviews and requirement gathering",
+              description: "Conduct structured interviews with all stakeholders to collect detailed requirements, expectations, constraints, and success criteria. Document findings in a comprehensive requirements document.",
+              priority: 1,
+              estimatedHours: 10,
+              labels: ["discovery", "requirements"]
+            },
+            {
+              title: "Market and competitor analysis",
+              description: "Research competing solutions, identify their strengths and weaknesses, analyze market trends, and document opportunities for differentiation and innovation.",
+              priority: 2,
+              estimatedHours: 8,
+              labels: ["research", "discovery"]
+            },
+            {
+              title: "User personas and journey mapping",
+              description: "Create detailed user personas representing target users. Map comprehensive user journeys showing how different personas will interact with the system to accomplish their goals.",
+              priority: 1,
+              estimatedHours: 12,
+              labels: ["ux", "discovery"]
+            },
+            {
+              title: "Technical feasibility assessment",
+              description: "Evaluate technical approaches against requirements, assess risks, explore alternative solutions, and document technology selection decisions with justifications.",
+              priority: 1,
+              estimatedHours: 14,
+              labels: ["architecture", "planning"]
+            },
+            {
+              title: "Project charter and scope document",
+              description: "Create a comprehensive project charter defining scope, objectives, deliverables, timeline, budget, team structure, and governance framework.",
+              priority: 1,
+              estimatedHours: 6,
+              labels: ["documentation", "planning"]
+            }
+          ]
+        },
+        {
           title: "Requirements & Planning",
           description: "Define detailed requirements, create technical specifications, and establish project timeline.",
           issues: [
             {
-              title: "Create detailed user stories",
-              description: "Document comprehensive user stories with acceptance criteria for all main features.",
-              priority: 2,
+              title: "Create detailed user stories and acceptance criteria",
+              description: "Document comprehensive user stories with acceptance criteria for all main features. Include edge cases, validation rules, and performance expectations for each story.",
+              priority: 1,
+              estimatedHours: 16,
               labels: ["documentation", "planning"]
             },
             {
-              title: "Define technical architecture",
-              description: `Design the system architecture considering ${technicalRequirements.join(', ') || 'all technical requirements'}. Include diagrams, API specifications, and data models.`,
+              title: "Define technical architecture and system design",
+              description: `Design the system architecture considering ${technicalRequirements.join(', ') || 'all technical requirements'}. Include detailed diagrams for system components, data flows, API specifications, security model, and data models. Document scalability, reliability, and performance considerations.`,
               priority: 1,
+              estimatedHours: 24,
               labels: ["architecture", "planning"]
             },
             {
-              title: "Set up development environment",
-              description: "Configure development, staging, and production environments with CI/CD pipelines.",
+              title: "Create database schema and data migration plan",
+              description: "Design comprehensive database schema with tables, relationships, indexing strategy, and validation rules. Develop data migration strategy if updating an existing system.",
+              priority: 1,
+              estimatedHours: 12,
+              labels: ["database", "architecture"]
+            },
+            {
+              title: "Set up development infrastructure and environments",
+              description: "Configure development, staging, testing, and production environments with CI/CD pipelines. Document setup procedures, access controls, and environment configuration details.",
               priority: 2,
+              estimatedHours: 10,
+              labels: ["devops", "infrastructure"]
+            },
+            {
+              title: "Create detailed project roadmap and sprint planning",
+              description: "Develop a comprehensive project timeline with milestones, deliverables, dependencies, critical path analysis, and resource allocation. Organize user stories into initial sprints.",
+              priority: 1,
               estimatedHours: 8,
-              labels: ["devops"]
+              labels: ["planning", "management"]
+            },
+            {
+              title: "Establish coding standards and development workflows",
+              description: "Document coding standards, pull request processes, review requirements, testing protocols, and deployment procedures. Set up linting and formatting tools to enforce standards.",
+              priority: 2,
+              estimatedHours: 6,
+              labels: ["documentation", "process"]
             }
           ]
         },
@@ -313,25 +377,46 @@ export class LinearMCP {
           description: "Create UI/UX designs and interactive prototypes for key user flows.",
           issues: [
             {
+              title: "Develop brand and design system",
+              description: "Create a comprehensive design system including typography, color palette, spacing guidelines, component library, and interaction patterns. Ensure consistency with brand identity and accessibility standards.",
+              priority: 1,
+              estimatedHours: 20,
+              labels: ["design", "branding"]
+            },
+            {
               title: "Create wireframes for all main screens",
-              description: "Design low-fidelity wireframes for all core user flows and get stakeholder approval.",
+              description: "Design low-fidelity wireframes for all core user flows and get stakeholder approval. Include mobile, tablet, and desktop variations where appropriate. Document layout principles and information hierarchy.",
               priority: 2,
-              estimatedHours: 12,
+              estimatedHours: 16,
               labels: ["design", "ux"]
             },
             {
               title: "Develop high-fidelity mockups",
-              description: "Create detailed visual designs based on approved wireframes, including responsive variations.",
+              description: "Create detailed visual designs based on approved wireframes, including responsive variations. Apply the design system consistently across all screens. Document design decisions and rationale.",
               priority: 2,
-              estimatedHours: 16,
+              estimatedHours: 24,
               labels: ["design", "ui"]
             },
             {
               title: "Build interactive prototype",
-              description: "Create clickable prototype demonstrating key user flows for testing and stakeholder review.",
-              priority: 3,
-              estimatedHours: 10,
+              description: "Create clickable prototype demonstrating key user flows for testing and stakeholder review. Include critical interactions, form validations, navigation patterns, and conditional behaviors.",
+              priority: 2,
+              estimatedHours: 16,
               labels: ["prototype", "ux"]
+            },
+            {
+              title: "Conduct usability testing on prototypes",
+              description: "Perform usability testing with representative users, record findings, identify issues, and incorporate feedback into design revisions. Document testing methodology and results.",
+              priority: 1,
+              estimatedHours: 12,
+              labels: ["testing", "ux"]
+            },
+            {
+              title: "Create UI component specifications for developers",
+              description: "Document detailed specifications for UI components including states, behaviors, animations, accessibility requirements, and implementation guidelines for development team.",
+              priority: 2,
+              estimatedHours: 12,
+              labels: ["documentation", "ui"]
             }
           ]
         },
@@ -340,25 +425,60 @@ export class LinearMCP {
           description: "Implement the fundamental features and establish the technical foundation.",
           issues: [
             {
-              title: "Set up database schema and migrations",
-              description: "Design and implement database structure with proper indexing, relationships, and optimization.",
+              title: "Set up project repository and codebase structure",
+              description: "Initialize repository with proper structure, README, contribution guidelines, and initial configuration. Set up branching strategy, protection rules, and automation workflows.",
               priority: 1,
-              estimatedHours: 8,
+              estimatedHours: 4,
+              labels: ["setup", "development"]
+            },
+            {
+              title: "Implement core application architecture",
+              description: "Build foundational architectural components following the design specifications. Establish patterns for state management, dependency injection, error handling, and logging.",
+              priority: 1,
+              estimatedHours: 20,
+              labels: ["architecture", "development"]
+            },
+            {
+              title: "Set up database schema and migrations",
+              description: "Design and implement database structure with proper indexing, relationships, and optimization. Create migration framework and initial schema migrations. Implement data access layer with proper abstractions.",
+              priority: 1,
+              estimatedHours: 12,
               labels: ["backend", "database"]
             },
             {
-              title: "Implement authentication system",
-              description: "Create secure user authentication with role-based permissions, password policies, and account recovery.",
+              title: "Implement authentication and authorization system",
+              description: "Create secure user authentication with role-based permissions, password policies, session management, and account recovery. Implement proper authorization checks throughout the application.",
               priority: 1,
-              estimatedHours: 12,
+              estimatedHours: 16,
               labels: ["security", "backend"]
             },
             {
-              title: "Develop core API endpoints",
-              description: "Implement RESTful or GraphQL API endpoints for core functionality with proper validation and error handling.",
+              title: "Develop core API endpoints and service layer",
+              description: "Implement RESTful or GraphQL API endpoints for core functionality with proper validation, error handling, and documentation. Create service layer with business logic separate from controllers.",
+              priority: 1,
+              estimatedHours: 24,
+              labels: ["backend", "api"]
+            },
+            {
+              title: "Implement base UI components and framework",
+              description: "Build reusable UI component library according to design system specifications. Implement layout components, form controls, navigation elements, and utility components.",
               priority: 1,
               estimatedHours: 20,
-              labels: ["backend", "api"]
+              labels: ["frontend", "components"]
+            },
+            {
+              title: "Set up automated testing framework",
+              description: "Configure testing frameworks for unit, integration, and end-to-end tests. Create initial test cases and documentation for test patterns. Set up test automation in CI pipeline.",
+              priority: 2,
+              estimatedHours: 10,
+              labels: ["testing", "quality"]
+            },
+            {
+              title: "Implement logging, monitoring, and error tracking",
+              description: "Set up comprehensive logging system, application monitoring, and error tracking integration. Configure alerts and establish observability practices.",
+              priority: 2,
+              estimatedHours: 8,
+              labels: ["devops", "monitoring"]
             }
           ]
         },
@@ -367,25 +487,60 @@ export class LinearMCP {
           description: "Build out all planned features according to specifications.",
           issues: [
             {
+              title: "Implement user management and profile features",
+              description: "Build user registration, login, profile management, account settings, and related functionality. Include email verification, password reset, and profile customization features.",
+              priority: 1,
+              estimatedHours: 20,
+              labels: ["frontend", "backend", "feature"]
+            },
+            {
               title: "Implement user dashboard",
-              description: "Create the main user dashboard showing key metrics, recent activity, and quick actions.",
+              description: "Create the main user dashboard showing key metrics, recent activity, and quick actions. Implement data visualization components, activity feeds, and personalization options.",
               priority: 2,
-              estimatedHours: 14,
+              estimatedHours: 18,
               labels: ["frontend", "feature"]
             },
             {
               title: "Build search and filtering functionality",
-              description: "Implement advanced search with filters, sorting options, and saved searches capability.",
+              description: "Implement advanced search with filters, sorting options, and saved searches capability. Optimize for performance with proper indexing and caching strategies.",
               priority: 2,
-              estimatedHours: 10,
-              labels: ["frontend", "feature"]
+              estimatedHours: 14,
+              labels: ["frontend", "backend", "feature"]
             },
             {
               title: "Create reporting module",
-              description: "Develop customizable reports with data visualization, export options, and scheduling features.",
+              description: "Develop customizable reports with data visualization, export options, and scheduling features. Implement data aggregation, filtering, and visualization components.",
               priority: 3,
-              estimatedHours: 18,
+              estimatedHours: 22,
               labels: ["frontend", "data", "feature"]
+            },
+            {
+              title: "Implement notification system",
+              description: "Build a comprehensive notification system with in-app alerts, email notifications, and preference management. Include real-time updates and batch processing capabilities.",
+              priority: 2,
+              estimatedHours: 16,
+              labels: ["frontend", "backend", "feature"]
+            },
+            {
+              title: "Develop administrative functions",
+              description: "Create administrative interface for user management, system configuration, content moderation, and other administrative tasks. Implement proper access controls and audit logging.",
+              priority: 2,
+              estimatedHours: 24,
+              labels: ["frontend", "backend", "feature"]
+            },
+            {
+              title: "Implement integration with third-party services",
+              description: "Build integrations with required external services such as payment processors, email services, analytics platforms, and other third-party APIs. Ensure proper error handling and fallback mechanisms.",
+              priority: 2,
+              estimatedHours: 18,
+              labels: ["integration", "feature"]
+            },
+            {
+              title: "Create mobile responsive adaptations",
+              description: "Optimize application for mobile devices with responsive layouts, touch interactions, and mobile-specific features. Test across various device sizes and orientations.",
+              priority: 2,
+              estimatedHours: 14,
+              labels: ["frontend", "mobile", "feature"]
             }
           ]
         },
@@ -395,24 +550,59 @@ export class LinearMCP {
           issues: [
             {
               title: "Write unit tests for core functionality",
-              description: "Create comprehensive test suite covering all critical paths and edge cases.",
+              description: "Create comprehensive test suite covering all critical paths and edge cases. Establish testing patterns and utilities to facilitate thorough testing.",
               priority: 1,
-              estimatedHours: 16,
+              estimatedHours: 20,
               labels: ["testing", "quality"]
             },
             {
               title: "Perform integration testing",
-              description: "Test interactions between different components and external services.",
+              description: "Test interactions between different components and external services. Verify that all parts of the system work together correctly under various conditions.",
               priority: 2,
-              estimatedHours: 12,
+              estimatedHours: 16,
               labels: ["testing", "quality"]
             },
             {
-              title: "Conduct security audit",
-              description: "Perform thorough security assessment including penetration testing and vulnerability scanning.",
+              title: "Conduct end-to-end testing",
+              description: "Create automated end-to-end tests for critical user journeys. Verify complete workflows function correctly across all system components.",
+              priority: 2,
+              estimatedHours: 14,
+              labels: ["testing", "quality"]
+            },
+            {
+              title: "Perform accessibility audit and remediation",
+              description: "Audit application for accessibility compliance (WCAG 2.1 AA), identify issues, and implement necessary fixes. Include screen reader testing and keyboard navigation verification.",
               priority: 1,
-              estimatedHours: 8,
+              estimatedHours: 12,
+              labels: ["accessibility", "quality"]
+            },
+            {
+              title: "Conduct security audit",
+              description: "Perform thorough security assessment including penetration testing, vulnerability scanning, and code review for security issues. Address identified vulnerabilities.",
+              priority: 1,
+              estimatedHours: 16,
               labels: ["security", "quality"]
+            },
+            {
+              title: "Run performance testing and optimization",
+              description: "Test application performance under various load conditions, identify bottlenecks, and implement optimizations. Measure and document performance metrics before and after improvements.",
+              priority: 2,
+              estimatedHours: 18,
+              labels: ["performance", "quality"]
+            },
+            {
+              title: "Conduct user acceptance testing",
+              description: "Facilitate testing sessions with stakeholders and end users to validate the solution meets requirements and expectations. Document feedback and required changes.",
+              priority: 1,
+              estimatedHours: 12,
+              labels: ["testing", "stakeholder"]
+            },
+            {
+              title: "Create test documentation and reports",
+              description: "Document test plans, test cases, testing coverage, and test results. Create comprehensive testing report for stakeholders and project documentation.",
+              priority: 2,
+              estimatedHours: 8,
+              labels: ["documentation", "quality"]
             }
           ]
         },
@@ -422,24 +612,114 @@ export class LinearMCP {
           issues: [
             {
               title: "Create deployment documentation",
-              description: "Document detailed deployment procedures, system requirements, and configuration instructions.",
-              priority: 2,
-              estimatedHours: 6,
+              description: "Document detailed deployment procedures, system requirements, configuration instructions, and maintenance processes. Include troubleshooting guides and rollback procedures.",
+              priority: 1,
+              estimatedHours: 8,
               labels: ["documentation", "devops"]
             },
             {
+              title: "Set up production environment",
+              description: "Configure and secure production infrastructure, databases, storage, and networking. Implement monitoring, backup systems, and disaster recovery provisions.",
+              priority: 1,
+              estimatedHours: 12,
+              labels: ["infrastructure", "devops"]
+            },
+            {
               title: "Perform load testing",
-              description: "Test system performance under expected and peak loads, identify bottlenecks.",
+              description: "Test system performance under expected and peak loads, identify bottlenecks, and implement necessary optimizations. Document capacity planning recommendations.",
               priority: 2,
-              estimatedHours: 8,
+              estimatedHours: 10,
               labels: ["testing", "performance"]
             },
             {
-              title: "Execute production deployment",
-              description: "Deploy to production environment following established procedures with rollback strategy.",
+              title: "Conduct pre-launch security review",
+              description: "Perform final security assessment including configuration review, credential management audit, and infrastructure security verification.",
               priority: 1,
-              estimatedHours: 4,
+              estimatedHours: 6,
+              labels: ["security", "review"]
+            },
+            {
+              title: "Create user documentation and help resources",
+              description: "Develop comprehensive user guides, help documentation, FAQ, and tutorial content. Include screenshots, video demonstrations, and troubleshooting information.",
+              priority: 2,
+              estimatedHours: 14,
+              labels: ["documentation", "support"]
+            },
+            {
+              title: "Prepare support and maintenance plan",
+              description: "Establish support processes, escalation procedures, and maintenance schedule. Create incident response plan and communication templates.",
+              priority: 2,
+              estimatedHours: 6,
+              labels: ["planning", "support"]
+            },
+            {
+              title: "Conduct staff training",
+              description: "Train support staff, administrators, and other relevant team members on system operation, administration, and troubleshooting processes.",
+              priority: 2,
+              estimatedHours: 8,
+              labels: ["training", "support"]
+            },
+            {
+              title: "Execute production deployment",
+              description: "Deploy to production environment following established procedures with rollback strategy. Perform post-deployment verification and monitoring.",
+              priority: 1,
+              estimatedHours: 8,
               labels: ["devops", "release"]
+            },
+            {
+              title: "Post-launch monitoring and support",
+              description: "Actively monitor system performance, error rates, and user activity during initial launch period. Address issues promptly and provide heightened support availability.",
+              priority: 1,
+              estimatedHours: 16,
+              labels: ["support", "monitoring"]
+            }
+          ]
+        },
+        {
+          title: "Post-Launch Optimization",
+          description: "Gather feedback, make improvements, and plan future development.",
+          issues: [
+            {
+              title: "Collect and analyze user feedback",
+              description: "Gather user feedback through surveys, interviews, support requests, and analytics. Analyze patterns and prioritize improvement opportunities.",
+              priority: 2,
+              estimatedHours: 10,
+              labels: ["feedback", "analysis"]
+            },
+            {
+              title: "Conduct post-launch retrospective",
+              description: "Facilitate team retrospective to review project execution, identify lessons learned, and document recommendations for future projects.",
+              priority: 2,
+              estimatedHours: 4,
+              labels: ["process", "review"]
+            },
+            {
+              title: "Implement critical fixes and improvements",
+              description: "Address high-priority issues identified post-launch. Implement quick wins and critical improvements based on user feedback and performance data.",
+              priority: 1,
+              estimatedHours: 20,
+              labels: ["development", "optimization"]
+            },
+            {
+              title: "Optimize performance and resource usage",
+              description: "Analyze performance metrics, identify optimization opportunities, and implement improvements to enhance speed, reliability, and resource efficiency.",
+              priority: 2,
+              estimatedHours: 16,
+              labels: ["performance", "optimization"]
+            },
+            {
+              title: "Create roadmap for future enhancements",
+              description: "Develop prioritized roadmap for future development phases based on user feedback, business objectives, and technical considerations.",
+              priority: 2,
+              estimatedHours: 8,
+              labels: ["planning", "strategy"]
+            },
+            {
+              title: "Document project completion and transfer ownership",
+              description: "Create final project documentation, transfer knowledge to operational teams, and formally close the project phase.",
+              priority: 1,
+              estimatedHours: 6,
+              labels: ["documentation", "closure"]
             }
           ]
         }
@@ -889,11 +1169,95 @@ export class LinearMCP {
       enhancedDescription += '\n';
     }
     
-    // Add acceptance criteria section
-    enhancedDescription += `## Acceptance Criteria\n- Functionality works as described\n- Code follows project standards\n- Documentation is updated\n- Tests are written and passing\n\n`;
+    // Add detailed implementation instructions
+    enhancedDescription += `## Implementation Instructions\n`;
+    enhancedDescription += `1. Begin by analyzing the current state and requirements thoroughly\n`;
+    enhancedDescription += `2. Create a detailed implementation plan before writing any code\n`;
+    enhancedDescription += `3. Follow established project patterns and coding standards\n`;
+    enhancedDescription += `4. Document your approach and any important decisions\n`;
+    enhancedDescription += `5. Write tests to verify your implementation meets requirements\n`;
+    enhancedDescription += `6. Request feedback early to avoid late-stage revisions\n\n`;
+    
+    // Add specific considerations based on the task type (extracted from labels if available)
+    enhancedDescription += `## Specific Considerations\n`;
+    
+    // Add specific considerations based on content in the description
+    if (baseDescription.toLowerCase().includes('database') || baseDescription.toLowerCase().includes('schema')) {
+      enhancedDescription += `### Database Work\n`;
+      enhancedDescription += `- Ensure proper indexing for optimal query performance\n`;
+      enhancedDescription += `- Consider data validation and constraints\n`;
+      enhancedDescription += `- Document schema changes and migration steps\n`;
+      enhancedDescription += `- Plan for backward compatibility if needed\n\n`;
+    }
+    
+    if (baseDescription.toLowerCase().includes('api') || baseDescription.toLowerCase().includes('endpoint')) {
+      enhancedDescription += `### API Development\n`;
+      enhancedDescription += `- Follow RESTful principles or GraphQL best practices\n`;
+      enhancedDescription += `- Implement proper error handling and status codes\n`;
+      enhancedDescription += `- Document the API with examples\n`;
+      enhancedDescription += `- Consider rate limiting and security aspects\n\n`;
+    }
+    
+    if (baseDescription.toLowerCase().includes('ui') || baseDescription.toLowerCase().includes('interface') || 
+        baseDescription.toLowerCase().includes('design') || baseDescription.toLowerCase().includes('frontend')) {
+      enhancedDescription += `### UI Implementation\n`;
+      enhancedDescription += `- Ensure responsive design works on all target devices\n`;
+      enhancedDescription += `- Implement proper loading states and error handling\n`;
+      enhancedDescription += `- Follow accessibility guidelines (WCAG 2.1)\n`;
+      enhancedDescription += `- Test across different browsers\n\n`;
+    }
+    
+    if (baseDescription.toLowerCase().includes('test') || baseDescription.toLowerCase().includes('qa')) {
+      enhancedDescription += `### Testing Work\n`;
+      enhancedDescription += `- Create comprehensive test cases covering edge cases\n`;
+      enhancedDescription += `- Document test procedures for manual testing\n`;
+      enhancedDescription += `- Consider performance and load testing aspects\n`;
+      enhancedDescription += `- Verify compatibility with target environments\n\n`;
+    }
+    
+    if (baseDescription.toLowerCase().includes('security') || baseDescription.toLowerCase().includes('auth')) {
+      enhancedDescription += `### Security Considerations\n`;
+      enhancedDescription += `- Follow OWASP security best practices\n`;
+      enhancedDescription += `- Implement proper authentication and authorization\n`;
+      enhancedDescription += `- Consider input validation and data sanitization\n`;
+      enhancedDescription += `- Document security measures implemented\n\n`;
+    }
+    
+    // Add comprehensive acceptance criteria section
+    enhancedDescription += `## Acceptance Criteria\n`;
+    enhancedDescription += `### Functional Requirements\n`;
+    enhancedDescription += `- Functionality works as described in the overview\n`;
+    enhancedDescription += `- All edge cases are handled gracefully\n`;
+    enhancedDescription += `- Performance meets established benchmarks\n`;
+    
+    enhancedDescription += `\n### Quality Requirements\n`;
+    enhancedDescription += `- Code follows project coding standards and patterns\n`;
+    enhancedDescription += `- Comprehensive test coverage is provided\n`;
+    enhancedDescription += `- Documentation is complete and up-to-date\n`;
+    enhancedDescription += `- No new linting errors or warnings are introduced\n`;
+    
+    enhancedDescription += `\n### Delivery Requirements\n`;
+    enhancedDescription += `- Pull request includes detailed description of changes\n`;
+    enhancedDescription += `- CI/CD pipeline passes all checks\n`;
+    enhancedDescription += `- Code has been peer-reviewed before merging\n`;
+    enhancedDescription += `- Changes have been demonstrated to stakeholders if applicable\n\n`;
+    
+    // Add dependencies section
+    enhancedDescription += `## Dependencies\n`;
+    enhancedDescription += `- Note any dependencies on other tasks or team members here\n`;
+    enhancedDescription += `- Update this section as dependencies are identified or resolved\n\n`;
+    
+    // Add estimation and tracking section
+    enhancedDescription += `## Time Tracking\n`;
+    enhancedDescription += `- Initial estimate: [TBD] hours\n`;
+    enhancedDescription += `- Track time spent on research, implementation, testing, and review\n`;
+    enhancedDescription += `- Document any significant deviations from estimates\n\n`;
     
     // Add additional resources section
-    enhancedDescription += `## Additional Resources\n- Refer to project documentation for more details\n- Consult with team members if clarification is needed\n`;
+    enhancedDescription += `## Additional Resources\n`;
+    enhancedDescription += `- Refer to project documentation for established patterns\n`;
+    enhancedDescription += `- Consult with team members who have domain expertise\n`;
+    enhancedDescription += `- Update this section with links to relevant resources\n`;
     
     return enhancedDescription;
   }
